@@ -11,6 +11,10 @@ namespace SAA {
         /// </summary>
         [STAThread]
         static void Main() {
+
+            LDAPProcessor lp = LDAPProcessor.GetInstance();
+            int c = lp.Users().Count();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());

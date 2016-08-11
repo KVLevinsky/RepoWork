@@ -1,1 +1,9 @@
 Z:\Repos\RepoWork\SystemAdministratorAssistant\SAA\bin\Debug\SAA.exe.config
+Z:\Repos\RepoWork\SystemAdministratorAssistant\SAA\bin\Debug\SAA.exe
+Z:\Repos\RepoWork\SystemAdministratorAssistant\SAA\bin\Debug\SAA.pdb
+Z:\Repos\RepoWork\SystemAdministratorAssistant\SAA\obj\Debug\SAA.csprojResolveAssemblyReference.cache
+Z:\Repos\RepoWork\SystemAdministratorAssistant\SAA\obj\Debug\SAA.FormMain.resources
+Z:\Repos\RepoWork\SystemAdministratorAssistant\SAA\obj\Debug\SAA.Properties.Resources.resources
+Z:\Repos\RepoWork\SystemAdministratorAssistant\SAA\obj\Debug\SAA.csproj.GenerateResource.Cache
+Z:\Repos\RepoWork\SystemAdministratorAssistant\SAA\obj\Debug\SAA.exe
+Z:\Repos\RepoWork\SystemAdministratorAssistant\SAA\obj\Debug\SAA.pdb
