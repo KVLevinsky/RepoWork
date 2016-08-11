@@ -15,21 +15,33 @@ namespace SAA {
             return _instance;
         }
 
+        public LDAPProcessor() {
+            principalContext = new PrincipalContext(ContextType.Domain);
+            ADServer = principalContext.ConnectedServer;
+        }
+
+        public string ADServer { get; private set; }
+
+        PrincipalContext principalContext;
+
         public IEnumerable<UserPrincipal> Users() {
-            using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain)){
-                using (PrincipalSearcher principalSearcher = new PrincipalSearcher(new UserPrincipal(principalContext))) {
-                    foreach (UserPrincipal item in principalSearcher.FindAll()) {
-                        yield return item;
-                    }
+            using (PrincipalSearcher principalSearcher = new PrincipalSearcher(new UserPrincipal(principalContext))) {
+                foreach (UserPrincipal item in principalSearcher.FindAll()) {
+                    yield return item;
                 }
             }
         }
         public IEnumerable<ComputerPrincipal> Computers() {
-            using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain)) {
-                using (PrincipalSearcher principalSearcher = new PrincipalSearcher(new ComputerPrincipal(principalContext))) {
-                    foreach (ComputerPrincipal item in principalSearcher.FindAll()) {
-                        yield return item;
-                    }
+            using (PrincipalSearcher principalSearcher = new PrincipalSearcher(new ComputerPrincipal(principalContext))) {
+                foreach (ComputerPrincipal item in principalSearcher.FindAll()) {
+                    yield return item;
+                }
+            }
+        }
+        public IEnumerable<GroupPrincipal> Groups() {
+            using (PrincipalSearcher principalSearcher = new PrincipalSearcher(new GroupPrincipal(principalContext))) {
+                foreach (GroupPrincipal item in principalSearcher.FindAll()) {
+                    yield return item;
                 }
             }
         }

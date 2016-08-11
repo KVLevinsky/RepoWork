@@ -55,6 +55,8 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="LDAPProcessor.cs" />
+    <Compile Include="MFDepartment.cs" />
+    <Compile Include="MFPerson.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
