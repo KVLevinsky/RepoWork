@@ -14,21 +14,21 @@ namespace SAA {
                 _instance = new LDAPProcessor();
             return _instance;
         }
-        private LDAPProcessor() {
-            init();
-        }
 
-        //PrincipalContext principalContext;
-
-        protected void init() {
-            //principalContext = new PrincipalContext(ContextType.Domain);
-        }
-
-        public IEnumerable<DirectoryEntry> Users() {
+        public IEnumerable<UserPrincipal> Users() {
             using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain)){
                 using (PrincipalSearcher principalSearcher = new PrincipalSearcher(new UserPrincipal(principalContext))) {
-                    foreach (var item in principalSearcher.FindAll()) {
-                        yield return item.GetUnderlyingObject() as DirectoryEntry;
+                    foreach (UserPrincipal item in principalSearcher.FindAll()) {
+                        yield return item;
+                    }
+                }
+            }
+        }
+        public IEnumerable<ComputerPrincipal> Computers() {
+            using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain)) {
+                using (PrincipalSearcher principalSearcher = new PrincipalSearcher(new ComputerPrincipal(principalContext))) {
+                    foreach (ComputerPrincipal item in principalSearcher.FindAll()) {
+                        yield return item;
                     }
                 }
             }
